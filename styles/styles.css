@@ -138,10 +138,14 @@ section {
   justify-content: center;
   align-items: center;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.1s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 .theme-btn:active {
   transform: translateY(-3px);
+}
+.theme-btn:hover {
+  border-radius: 40%;
+  transition: all 0.4s ease-in-out;
 }
 .theme-btn i {
   font-size: 1.4rem;
@@ -372,6 +376,21 @@ section {
   padding-left: 3rem;
   border-left: 1px solid var(--color-grey-5);
 }
+.timeline .timeline-item:hover .tl-icon {
+  position: absolute;
+  left: -27px;
+  top: 0;
+  background-color: #1fe0c7;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeline .timeline-item:hover .tl-icon i {
+  font-size: 1.3rem;
+}
 .timeline .timeline-item .tl-icon {
   position: absolute;
   left: -27px;
@@ -481,6 +500,7 @@ section {
 .portfolios .portfolio-item .hover-items .project-description:hover {
   border-radius: 0%;
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 .portfolios .portfolio-item .hover-items h3 {
   font-size: 1.5rem;
