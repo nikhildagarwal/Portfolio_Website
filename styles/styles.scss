@@ -668,7 +668,7 @@ section {
     align-self: flex-start;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     .btn-text { 
         padding: 0 2rem; 
         border: 0;
@@ -704,6 +704,35 @@ section {
 
 }
 
+.icons-back{
+    display: flex;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            a {
+                display: flex;
+                align-items: center;
+                color: var(--color-white);
+                background-color: var(--color-grey-5);
+                cursor: pointer;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                margin: 0 .5rem;
+                transition: all .4s ease-in-out;
+                &:hover {
+                    background-color: var(--color-secondary);
+                    i { color: var(--color-primary); }
+                }
+                i {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.3rem;
+                }
+            }
+}
+
 .main-title {
     text-align: center;
     h2 {
@@ -725,5 +754,12 @@ section {
         }
     }
 }
+.video {
+    
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 @import './media';

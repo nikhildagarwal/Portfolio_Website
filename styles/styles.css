@@ -687,7 +687,7 @@ section {
   align-self: flex-start;
   align-items: center;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 .main-btn .btn-text {
   padding: 0 2rem;
@@ -721,6 +721,37 @@ section {
   transition: all 0.4s ease-out;
 }
 
+.icons-back {
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.icons-back a {
+  display: flex;
+  align-items: center;
+  color: var(--color-white);
+  background-color: var(--color-grey-5);
+  cursor: pointer;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  transition: all 0.4s ease-in-out;
+}
+.icons-back a:hover {
+  background-color: var(--color-secondary);
+}
+.icons-back a:hover i {
+  color: var(--color-primary);
+}
+.icons-back a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
 .main-title {
   text-align: center;
 }
@@ -743,6 +774,12 @@ section {
   transform: translate(-50%, -50%);
   font-weight: 800;
   font-size: 6.1rem;
+}
+
+.video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-container .left-about p {
