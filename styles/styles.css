@@ -143,10 +143,6 @@ section {
 .theme-btn:active {
   transform: translateY(-3px);
 }
-.theme-btn:hover {
-  border-radius: 40%;
-  transition: all 0.4s ease-in-out;
-}
 .theme-btn i {
   font-size: 1.4rem;
   color: var(--color-grey-2);
@@ -253,6 +249,7 @@ section {
   font-size: 1.2rem;
   color: var(--color-grey-1);
   letter-spacing: 2px;
+  margin-bottom: 1rem;
 }
 .about-container .right-about .about-item .abt-text .small-text::before {
   content: "";
@@ -380,6 +377,7 @@ section {
   position: absolute;
   left: -27px;
   top: 0;
+  transition: all 0.4s ease-in-out;
   background-color: #1fe0c7;
   width: 50px;
   height: 50px;
@@ -392,6 +390,7 @@ section {
   font-size: 1.3rem;
 }
 .timeline .timeline-item .tl-icon {
+  transition: all 0.4s ease-in-out;
   position: absolute;
   left: -27px;
   top: 0;
@@ -498,7 +497,7 @@ section {
   transition: all 0.4s ease-in-out;
 }
 .portfolios .portfolio-item .hover-items .project-description:hover {
-  border-radius: 0%;
+  font-size: 1.2rem;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
 }
@@ -542,57 +541,6 @@ section {
   transform: scale(1);
 }
 
-/*
-.blogs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
-    margin-top: 3rem;
-    .blog {
-        position: relative;
-        background-color: var(--color-grey-5);
-        border-radius: 5px;
-        box-shadow: 1px 1px 20px rgba(0,0,0,.1);
-        transition: all .4s ease-in-out;
-        &:hover {
-            box-shadow: 1px 1px 20px rgba(0,0,0,.3);
-            transform: translateY(-5px);
-            transition: all .4s ease-in-out;
-            img {
-                filter: grayscale(0);
-                transform: scale(1.1);
-                box-shadow: 0px 4px 15px rgba(0,0,0,0.8);
-            }
-        }
-        img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            filter: grayscale(100%);
-            transition: all .4s ease-in-out;
-        }
-        .blog-text {
-            margin-top: -7px;
-            padding: 1.1rem;
-            border-top: 8px solid var(--color-secondary);
-            h4 {
-                font-size: 1.5rem;
-                margin-bottom: .7rem;
-                transition: all .4s ease-in-out;
-                cursor: pointer;
-                &:hover { color: var(--color-secondary); }
-            }
-            p{
-                color: var(--color-grey-2);
-                line-height: 2rem;
-                padding-bottom: 1rem;
-            }
-        }
-    }
-}
-*/
 .contact-content-con {
   display: flex;
   padding-top: 3.5rem;
@@ -706,6 +654,23 @@ section {
   transition: all 0.4s ease-in-out;
 }
 
+/*Project1 page*/
+.Organization-title {
+  padding: 0.2rem 0.6rem;
+  background-color: var(--color-grey-5);
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  transition: all 0.4s ease-in-out;
+}
+.Organization-title:hover {
+  background-color: var(--color-secondary);
+  transition: all 0.4s ease-in-out;
+}
+
 /*Independed components*/
 .btn-con {
   display: flex;
@@ -722,6 +687,7 @@ section {
   align-self: flex-start;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 .main-btn .btn-text {
   padding: 0 2rem;

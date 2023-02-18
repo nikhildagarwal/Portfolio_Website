@@ -136,10 +136,7 @@ section {
     box-shadow: 0 3px 15px rgba(0,0,0,.3);
     transition: all .4s ease-in-out;
     &:active{ transform: translateY(-3px); }
-    &:hover{
-        border-radius: 40%;
-        transition: all .4s ease-in-out;
-    }
+    
     i{
         font-size: 1.4rem;
         color: var(--color-grey-2);
@@ -241,6 +238,7 @@ section {
                     font-size: 1.2rem;
                     color: var(--color-grey-1);
                     letter-spacing: 2px;
+                    margin-bottom: 1rem;
                     &::before {
                         content: '';
                         position: absolute;
@@ -342,15 +340,18 @@ section {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
     padding-bottom: 3rem;
+    
     .timeline-item {
         position: relative;
         padding-left: 3rem;
         border-left: 1px solid var(--color-grey-5);
+        
         &:hover{
             .tl-icon {
                 position: absolute;
                 left: -27px;
                 top: 0;
+                transition: all .4s ease-in-out;
                 background-color: #1fe0c7;
                 width: 50px;
                 height: 50px;
@@ -361,7 +362,9 @@ section {
                 i { font-size: 1.3rem; }
             }
         }
+        
         .tl-icon {
+            transition: all .4s ease-in-out;
             position: absolute;
             left: -27px;
             top: 0;
@@ -462,7 +465,8 @@ section {
             margin-bottom: 1.5rem;
             transition: all .4s ease-in-out;
                 &:hover{
-                    border-radius: 0%;
+                    
+                    font-size: 1.2rem;
                     transition: all .4s ease-in-out;
                     cursor: pointer;
                 }
@@ -509,58 +513,6 @@ section {
     transform: scale(1);
 }
 
-
-/*
-.blogs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
-    margin-top: 3rem;
-    .blog {
-        position: relative;
-        background-color: var(--color-grey-5);
-        border-radius: 5px;
-        box-shadow: 1px 1px 20px rgba(0,0,0,.1);
-        transition: all .4s ease-in-out;
-        &:hover {
-            box-shadow: 1px 1px 20px rgba(0,0,0,.3);
-            transform: translateY(-5px);
-            transition: all .4s ease-in-out;
-            img {
-                filter: grayscale(0);
-                transform: scale(1.1);
-                box-shadow: 0px 4px 15px rgba(0,0,0,0.8);
-            }
-        }
-        img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            filter: grayscale(100%);
-            transition: all .4s ease-in-out;
-        }
-        .blog-text {
-            margin-top: -7px;
-            padding: 1.1rem;
-            border-top: 8px solid var(--color-secondary);
-            h4 {
-                font-size: 1.5rem;
-                margin-bottom: .7rem;
-                transition: all .4s ease-in-out;
-                cursor: pointer;
-                &:hover { color: var(--color-secondary); }
-            }
-            p{
-                color: var(--color-grey-2);
-                line-height: 2rem;
-                padding-bottom: 1rem;
-            }
-        }
-    }
-}
-*/
 
 //Contact section
 .contact-content-con {
@@ -682,6 +634,24 @@ section {
     }
 }
 
+/*Project1 page*/
+.Organization-title{
+    padding: .2rem .6rem;
+            background-color: var(--color-grey-5);
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            transition: all .4s ease-in-out;
+            &:hover{
+                background-color: var(--color-secondary);
+                transition: all .4s ease-in-out;
+            }
+                
+                
+}
 
 /*Independed components*/
 .btn-con {
@@ -698,6 +668,7 @@ section {
     align-self: flex-start;
     align-items: center;
     overflow: hidden;
+    margin-bottom: 2rem;
     .btn-text { 
         padding: 0 2rem; 
         border: 0;
