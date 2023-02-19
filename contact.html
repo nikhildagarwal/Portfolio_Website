@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="main-content">
-    <header class="container header active" id="home">
+    <header class="container header" id="home">
         <div class="header-content">
             <div class="left-header">
                 <div class="h-shape"></div>
@@ -439,7 +439,7 @@
             </div>
         </section>
         
-        <section class="container contact" id="contact">
+        <section class="container contact active" id="contact">
             <div class="contact-container">
                 <div class="main-title">
                     <h2>Contact <span>Me</span><span class="bg-text">Contact</span></h2>
@@ -552,26 +552,35 @@
     </main>
 
     <div class="controls">
+        <a href="home.html">
+            <div title="Home">
+                <div class="control" data-id="home" >
+                    <i class="fas fa-home"></i>
+                </div>
+            </div>
+        </a>
         
-        <div title="Home">
-            <div class="control active-btn" data-id="home" >
-                <i class="fas fa-home"></i>
+
+        <a href="about.html">
+            <div title = "About">
+                <div class="control" data-id="about">
+                    <i class="fas fa-user"></i>
+                </div>
             </div>
-        </div>
-        <div title = "About">
-            <div class="control" data-id="about">
-                <i class="fas fa-user"></i>
-            </div>
-        </div>
+        </a>
         
-        <div title = "Projects">
-            <div class="control" data-id="portfolio">
-                <i class="fa-solid fa-diagram-project"></i>
+        
+        <a href="project.html">
+            <div title = "Projects">
+                <div class="control" data-id="portfolio">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
             </div>
-        </div>
+        </a>
+        
         
         <div title = "Contact">
-            <div class="control" data-id="contact">
+            <div class="control active-btn" data-id="contact">
                 <i class="fas fa-envelope-open"></i>
             </div>
         </div>
