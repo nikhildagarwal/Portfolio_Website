@@ -173,7 +173,7 @@ section {
           clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
 }
 .header-content .left-header .image {
-  border-radius: var(--br-sm-2);
+  border-radius: 20%;
   height: 90%;
   width: 68%;
   margin-left: 4rem;
@@ -181,15 +181,18 @@ section {
   transition: all 0.4s ease-in-out;
 }
 .header-content .left-header .image img {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 20%;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   transition: all 0.4s ease-in-out;
-  filter: grayscale(100%);
-}
-.header-content .left-header .image img:hover {
-  filter: grayscale(0);
+  /*filter: grayscale(100%);
+  &:hover{
+      filter: grayscale(0);
+  }*/
 }
 .header-content .right-header {
   display: flex;
