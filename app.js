@@ -1,10 +1,11 @@
 
 (function () {
     
+
     var darkMode = "dark";
     var lightMode = "light";
     var request = new XMLHttpRequest();
-    request.open("GET", "myMode.json", false);
+    request.open("GET", "startMode.json", false);
     request.send(null)
     var my_JSON_object = JSON.parse(request.responseText);
     
@@ -25,6 +26,6 @@
         
         currState = nextState.theme;
         //console.log(nextState);
-       
     })
+    
 })();
