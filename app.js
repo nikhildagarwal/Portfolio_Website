@@ -1,6 +1,4 @@
-
-(function () {
-    
+function themeSwitcher(){
     const filePath = "C://Users/email/Portfolio_Website/public/myMode.json";
 
     let darkMode = "dark";
@@ -29,7 +27,7 @@
         
 
         let newData = fs.readFileSync(filePath);
-        let jsonData = JSON.parse(data);
+        let jsonData = JSON.parse(newData);
 
         jsonData = nextState;
 
@@ -38,5 +36,6 @@
         let printObj = JSON.parse(hello);
         console.log(printObj);
     })
-    
-})();
+}
+
+themeSwitcher();
