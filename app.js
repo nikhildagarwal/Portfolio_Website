@@ -1,15 +1,16 @@
 
 (function () {
     
+    const filePath = "C://Users/email/Portfolio_Website/public/myMode.json";
 
-    var darkMode = "dark";
-    var lightMode = "light";
-    var request = new XMLHttpRequest();
+    let darkMode = "dark";
+    let lightMode = "light";
+    let request = new XMLHttpRequest();
     request.open("GET", "startMode.json", false);
     request.send(null)
-    var my_JSON_object = JSON.parse(request.responseText);
+    let my_JSON_object = JSON.parse(request.responseText);
     
-    var currState = my_JSON_object.theme;
+    let currState = my_JSON_object.theme;
     if(currState==lightMode){
         document.body.classList.toggle("light-mode");
     }
@@ -25,7 +26,17 @@
         }
         
         currState = nextState.theme;
-        //console.log(nextState);
+        
+
+        let newData = fs.readFileSync(filePath);
+        let jsonData = JSON.parse(data);
+
+        jsonData = nextState;
+
+        fs.writeFileSync(filePath,JSON.stringify(jsonData));
+        let hello = fs.readFileSync(filePath);
+        let printObj = JSON.parse(hello);
+        console.log(printObj);
     })
     
 })();
