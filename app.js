@@ -13,6 +13,20 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
     appId: "1:150403251197:web:1c51e14f86d4af0eb77794"
   };
 
+  function getUniqueID(){
+    var navigator_info = window.navigator;
+    var screen_info = window.screen;
+    var uid = navigator_info.mimeTypes.length;
+    uid+=navigator_info.userAgent.replace(/\D+/g, '');
+    uid += navigator_info.plugins.length;
+    uid+= screen_info.height  || '';
+    uid += screen_info.width || '';
+    uid += screen_info.pixelDepth || '';
+    console.log(uid);
+  }
+
+  getUniqueID();
+
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
     // Initialize Firebase
