@@ -64,6 +64,9 @@ const server = http.createServer((req,res) => {
                 case "media.css":
                     res.writeHead(200,{"Content-type":"text/css"});
                     break;
+                case "Resume_nikhildagarwal.pdf":
+                    res.setHeader("Content-type","application/pdf");
+                    break;
                 case "app.js":
                     res.writeHead(200,{"Content-type":"application/javascript"});
             }
