@@ -4,9 +4,6 @@ const url = require("url");
 const fs = require("fs");
 
 
-
-
-
 const server = http.createServer((req,res) => {
     let parsedURL = url.parse(req.url,true);
     let path = parsedURL.path.replace(/^\/+|\/+$/g,"");
@@ -15,7 +12,7 @@ const server = http.createServer((req,res) => {
     }
     console.log(`Requested path ${path} `);
     
-    let file =  "C://Users/email/Portfolio_Website/" +path;
+    let file =  __dirname +"/"+path;
 
     fs.readFile(file,function(err,content){
         if(err){
