@@ -13,19 +13,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
     appId: "1:150403251197:web:1c51e14f86d4af0eb77794"
   };
 
-  function getUniqueID(){
-    var navigator_info = window.navigator;
-    var screen_info = window.screen;
-    var uid = navigator_info.mimeTypes.length;
-    uid+=navigator_info.userAgent.replace(/\D+/g, '');
-    uid += navigator_info.plugins.length;
-    uid+= screen_info.height  || '';
-    uid += screen_info.width || '';
-    uid += screen_info.pixelDepth || '';
-    console.log(uid);
-  }
-
-  getUniqueID();
+  
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -39,6 +27,20 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
     var darkMode = "dark";
     var lightMode = "light";
 
+    function getUniqueID(){
+        var navigator_info = window.navigator;
+        var screen_info = window.screen;
+        var uid = navigator_info.mimeTypes.length;
+        uid+=navigator_info.userAgent.replace(/\D+/g, '');
+        uid += navigator_info.plugins.length;
+        uid+= screen_info.height  || '';
+        uid += screen_info.width || '';
+        uid += screen_info.pixelDepth || '';
+        return uid;
+      }
+    
+      var deviceID = getUniqueID();
+     
 
     function getIPstart(){
         
@@ -46,13 +48,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
         .then(results => results.json())
         .then(data => {
             let ipNumber = data.ip;
-            let builder = "";
-            for(let i = 0;i<ipNumber.length;i++){
-                if(ipNumber.charAt(i)!= '.'){
-                    builder+=ipNumber.charAt(i);
-                }
-            }
-            startTheme(builder);
+            
+            startTheme(ipNumber);
             
         });
         
@@ -63,13 +60,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
     console.log(ipName);*/
 
 function startTheme(ip){
+    
     const dbref = ref(db);
-    get(child(dbref,"IP:"+ip+"/")).then((snapshot)=>{
+    get(child(dbref,deviceID+"/")).then((snapshot)=>{
         if(snapshot.exists()){
 
         }else{
-            set(ref(db,"IP:"+ip+"/"),{
-                Theme: "light"
+            set(ref(db,deviceID+"/"),{
+                Theme: "light",
+                IP: ip
             })
             getIPget();
         }
@@ -78,9 +77,9 @@ function startTheme(ip){
 }
 
 
-function getTheme(ip){
+function getTheme(){
     const dbref = ref(db);
-    get(child(dbref,"IP:"+ip+"/")).then((snapshot)=>{
+    get(child(dbref,deviceID+"/")).then((snapshot)=>{
         if(snapshot.exists()){
             const dataBaseTheme = snapshot.val().Theme;
         themeSwitcher(dataBaseTheme);
@@ -94,35 +93,25 @@ function getIPget(){
         .then(results => results.json())
         .then(data => {
             let ipNumber = data.ip;
-            let builder = "";
-            for(let i = 0;i<ipNumber.length;i++){
-                if(ipNumber.charAt(i)!= '.'){
-                    builder+=ipNumber.charAt(i);
-                }
-            }
-            getTheme(builder);
+            
+            getTheme(ipNumber);
         });
 }
 
-function getIPGET(ip){
+function getIPGET(){
     fetch('http://api.ipify.org/?format=json')
         .then(results => results.json())
         .then(data => {
             let ipNumber = data.ip;
-            let builder = "";
-            for(let i = 0;i<ipNumber.length;i++){
-                if(ipNumber.charAt(i)!= '.'){
-                    builder+=ipNumber.charAt(i);
-                }
-            }
-            GETTHEME(builder);
+            
+            GETTHEME(ipNumber);
         });
 }
 
 
 function GETTHEME(ip){
     const dbref = ref(db);
-    get(child(dbref,"IP:"+ip+"/")).then((snapshot)=>{
+    get(child(dbref,deviceID+"/")).then((snapshot)=>{
         const dataBaseTheme = snapshot.val().Theme;
         if(dataBaseTheme==lightMode){
             updateTheme(darkMode,ip);
@@ -133,8 +122,9 @@ function GETTHEME(ip){
 }
 
 function updateTheme(theme,ip){
-    update(ref(db,"IP:"+ip+"/"),{
-        Theme:theme
+    update(ref(db,deviceID+"/"),{
+        Theme:theme,
+        IP:ip
     })
 }
 
