@@ -25,26 +25,47 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
     var darkMode = "dark";
     var lightMode = "light";
 
-    
 
-function startTheme(){
+    function getIPstart(){
+        
+        fetch('http://api.ipify.org/?format=json')
+        .then(results => results.json())
+        .then(data => {
+            let ipNumber = data.ip;
+            let builder = "";
+            for(let i = 0;i<ipNumber.length;i++){
+                if(ipNumber.charAt(i)!= '.'){
+                    builder+=ipNumber.charAt(i);
+                }
+            }
+            startTheme(builder);
+        });
+        
+    }
+    getIPstart();
+    //console.log(getIPpromise());
+    /*let ipName = "IP"+getIP()+"/";
+    console.log(ipName);*/
+
+function startTheme(ip){
     const dbref = ref(db);
-    get(child(dbref,"Theme/")).then((snapshot)=>{
+    get(child(dbref,"IP:"+ip+"/")).then((snapshot)=>{
         if(snapshot.exists()){
 
         }else{
-            set(ref(db,"Theme/"),{
+            set(ref(db,"IP:"+ip+"/"),{
                 Theme: "light"
             })
+            getIPget();
         }
     })
     
 }
-startTheme();
 
-function getTheme(){
+
+function getTheme(ip){
     const dbref = ref(db);
-    get(child(dbref,"Theme/")).then((snapshot)=>{
+    get(child(dbref,"IP:"+ip+"/")).then((snapshot)=>{
         if(snapshot.exists()){
             const dataBaseTheme = snapshot.val().Theme;
         themeSwitcher(dataBaseTheme);
@@ -53,20 +74,51 @@ function getTheme(){
     })
 }
 
-function GETTHEME(){
+function getIPget(){
+    fetch('http://api.ipify.org/?format=json')
+        .then(results => results.json())
+        .then(data => {
+            let ipNumber = data.ip;
+            let builder = "";
+            for(let i = 0;i<ipNumber.length;i++){
+                if(ipNumber.charAt(i)!= '.'){
+                    builder+=ipNumber.charAt(i);
+                }
+            }
+            getTheme(builder);
+        });
+}
+
+function getIPGET(ip){
+    fetch('http://api.ipify.org/?format=json')
+        .then(results => results.json())
+        .then(data => {
+            let ipNumber = data.ip;
+            let builder = "";
+            for(let i = 0;i<ipNumber.length;i++){
+                if(ipNumber.charAt(i)!= '.'){
+                    builder+=ipNumber.charAt(i);
+                }
+            }
+            GETTHEME(builder);
+        });
+}
+
+
+function GETTHEME(ip){
     const dbref = ref(db);
-    get(child(dbref,"Theme/")).then((snapshot)=>{
+    get(child(dbref,"IP:"+ip+"/")).then((snapshot)=>{
         const dataBaseTheme = snapshot.val().Theme;
         if(dataBaseTheme==lightMode){
-            updateTheme(darkMode);
+            updateTheme(darkMode,ip);
         }else{
-            updateTheme(lightMode);
+            updateTheme(lightMode,ip);
         }
     })
 }
 
-function updateTheme(theme){
-    update(ref(db,"Theme/"),{
+function updateTheme(theme,ip){
+    update(ref(db,"IP:"+ip+"/"),{
         Theme:theme
     })
 }
@@ -78,8 +130,8 @@ function themeSwitcher(theme){
     
     document.querySelector(".theme-btn").addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
-        GETTHEME();
+        getIPGET();
     })
 }
 
-getTheme();
+getIPget();
