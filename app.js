@@ -24,6 +24,191 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
 
     const db = getDatabase();
 
+
+    function pageStats(){
+        let homePage = document.querySelector(".h-shape");
+        let onHomePage = homePage!=null;
+        //console.log("Home: "+onHomePage);
+
+        let aboutPage = document.querySelector(".main-title-about");
+        let onAboutPage = aboutPage!=null;
+        //console.log("About "+onAboutPage);
+
+        let projectPage = document.querySelector(".main-title-project");
+        let onProjectPage = projectPage!=null;
+        //console.log("ProjectMain: " +onProjectPage);
+
+        let contactPage = document.querySelector(".main-title-contact");
+        let onContactPage = contactPage!=null;
+        //console.log("Contact: "+ onContactPage);
+
+        let projectPage1 = document.querySelector(".main-title-project1");
+        let onProjectPage1 = projectPage1!=null;
+        //console.log("ProjectMain: " +onProjectPage1);
+        let projectPage2 = document.querySelector(".main-title-project2");
+        let onProjectPage2 = projectPage2!=null;
+        //console.log("ProjectMain: " +onProjectPage2);
+        let projectPage3 = document.querySelector(".main-title-project3");
+        let onProjectPage3 = projectPage3!=null;
+        //console.log("ProjectMain: " +onProjectPage3);
+        let projectPage4 = document.querySelector(".main-title-project4");
+        let onProjectPage4 = projectPage4!=null;
+        //console.log("ProjectMain: " +onProjectPage4);
+        let projectPage5 = document.querySelector(".main-title-project5");
+        let onProjectPage5 = projectPage5!=null;
+        //console.log("ProjectMain: " +onProjectPage5);
+        
+        if(onHomePage){
+            const dbref = ref(db);
+            get(child(dbref,"homePageVisits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"homePageVisits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"homePageVisits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        if(onAboutPage){
+            const dbref = ref(db);
+            get(child(dbref,"aboutPageVisits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"aboutPageVisits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"aboutPageVisits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        if(onProjectPage){
+            const dbref = ref(db);
+            get(child(dbref,"projectPageVisits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"projectPageVisits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"projectPageVisits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        if(onContactPage){
+            const dbref = ref(db);
+            get(child(dbref,"contactPageVisits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"contactPageVisits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"contactPageVisits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        if(onProjectPage1){
+            const dbref = ref(db);
+            get(child(dbref,"project1Visits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"project1Visits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"project1Visits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        if(onProjectPage2){
+            const dbref = ref(db);
+            get(child(dbref,"project2Visits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"project2Visits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"project2Visits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        if(onProjectPage3){
+            const dbref = ref(db);
+            get(child(dbref,"project3Visits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"project3Visits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"project3Visits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        if(onProjectPage4){
+            const dbref = ref(db);
+            get(child(dbref,"project4Visits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"project4Visits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"project4Visits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        if(onProjectPage5){
+            const dbref = ref(db);
+            get(child(dbref,"project5Visits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"project5Visits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    totalPagesVisited+=1+snapshot.val().Count;
+                }else{
+                    set(ref(db,"project5Visits/"),{
+                        Count: 1
+                    })
+                    totalPagesVisited+=1;
+                }
+            })
+        }
+        
+    }
+    
+    pageStats();
+
+
+
     var darkMode = "dark";
     var lightMode = "light";
 
@@ -52,6 +237,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
     //console.log(getIPpromise());
     /*let ipName = "IP"+getIP()+"/";
     console.log(ipName);*/
+
+    
 
 function startTheme(){
     
@@ -125,3 +312,4 @@ function themeSwitcher(theme){
 }
 
 getIPget();
+
