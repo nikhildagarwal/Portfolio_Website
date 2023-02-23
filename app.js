@@ -43,15 +43,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
      
 
     function getIPstart(){
+            startTheme();
         
-        fetch('http://api.ipify.org/?format=json')
-        .then(results => results.json())
-        .then(data => {
-            let ipNumber = data.ip;
-            
-            startTheme(ipNumber);
-            
-        })
         
         
     }
@@ -60,7 +53,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
     /*let ipName = "IP"+getIP()+"/";
     console.log(ipName);*/
 
-function startTheme(ip){
+function startTheme(){
     
     const dbref = ref(db);
     get(child(dbref,deviceID+"/")).then((snapshot)=>{
@@ -68,8 +61,7 @@ function startTheme(ip){
 
         }else{
             set(ref(db,deviceID+"/"),{
-                Theme: "light",
-                IP: ip
+                Theme: "light"
             })
             getIPget();
         }
@@ -90,42 +82,34 @@ function getTheme(){
 }
 
 function getIPget(){
-    fetch('http://api.ipify.org/?format=json')
-        .then(results => results.json())
-        .then(data => {
-            let ipNumber = data.ip;
-            
-            getTheme(ipNumber);
-        });
+    
+            getTheme();
+        
 }
 
 function getIPGET(){
-    fetch('http://api.ipify.org/?format=json')
-        .then(results => results.json())
-        .then(data => {
-            let ipNumber = data.ip;
+    
             
-            GETTHEME(ipNumber);
-        });
+            GETTHEME();
+        
 }
 
 
-function GETTHEME(ip){
+function GETTHEME(){
     const dbref = ref(db);
     get(child(dbref,deviceID+"/")).then((snapshot)=>{
         const dataBaseTheme = snapshot.val().Theme;
         if(dataBaseTheme==lightMode){
-            updateTheme(darkMode,ip);
+            updateTheme(darkMode);
         }else{
-            updateTheme(lightMode,ip);
+            updateTheme(lightMode);
         }
     })
 }
 
-function updateTheme(theme,ip){
+function updateTheme(theme){
     update(ref(db,deviceID+"/"),{
-        Theme:theme,
-        IP:ip
+        Theme:theme
     })
 }
 
