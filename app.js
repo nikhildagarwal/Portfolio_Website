@@ -74,6 +74,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     })
                 }
             })
+            get(child(dbref,"dataPageVisits/")).then((snapshot)=>{
+                let currVal = 1;
+                if(snapshot.exists()){
+                    currVal += snapshot.val().Count;
+                }
+                const analyticsStatPage = document.getElementsByClassName('analytics-page-stats')[0];
+                
+                let itemText=document.createTextNode(`Site Analytics: ${currVal}`);
+    
+                analyticsStatPage.appendChild(itemText);
+                //console.log(currVal);
+            })
         }
         if(onHomePage){
             const dbref = ref(db);
