@@ -65,12 +65,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"homePageVisits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
                 }else{
                     set(ref(db,"homePageVisits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
@@ -81,12 +79,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"aboutPageVisits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
                 }else{
                     set(ref(db,"aboutPageVisits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
@@ -97,12 +93,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"projectPageVisits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
+                    
                 }else{
                     set(ref(db,"projectPageVisits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
@@ -113,12 +108,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"contactPageVisits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
                 }else{
                     set(ref(db,"contactPageVisits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
@@ -129,12 +122,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"project1Visits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
                 }else{
                     set(ref(db,"project1Visits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
@@ -145,12 +136,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"project2Visits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
                 }else{
                     set(ref(db,"project2Visits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
@@ -161,12 +150,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"project3Visits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
                 }else{
                     set(ref(db,"project3Visits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
@@ -177,12 +164,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"project4Visits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
                 }else{
                     set(ref(db,"project4Visits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
@@ -193,12 +178,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     update(ref(db,"project5Visits/"),{
                         Count: 1+snapshot.val().Count
                     })
-                    totalPagesVisited+=1+snapshot.val().Count;
                 }else{
                     set(ref(db,"project5Visits/"),{
                         Count: 1
                     })
-                    totalPagesVisited+=1;
                 }
             })
         }
