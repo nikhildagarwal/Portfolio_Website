@@ -86,6 +86,54 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                 analyticsStatPage.appendChild(itemText);
                 //console.log(currVal);
             })
+            get(child(dbref,"homePageVisits/")).then((snapshot)=>{
+                let currVal = 0;
+                if(snapshot.exists()){
+                    currVal += snapshot.val().Count;
+                }
+                const analyticsStatPage = document.getElementsByClassName('home-page-stats')[0];
+                
+                let itemText=document.createTextNode(`Home: ${currVal}`);
+    
+                analyticsStatPage.appendChild(itemText);
+                //console.log(currVal);
+            })
+            get(child(dbref,"aboutPageVisits/")).then((snapshot)=>{
+                let currVal = 0;
+                if(snapshot.exists()){
+                    currVal += snapshot.val().Count;
+                }
+                const analyticsStatPage = document.getElementsByClassName('about-page-stats')[0];
+                
+                let itemText=document.createTextNode(`About: ${currVal}`);
+    
+                analyticsStatPage.appendChild(itemText);
+                //console.log(currVal);
+            })
+            get(child(dbref,"projectPageVisits/")).then((snapshot)=>{
+                let currVal = 0;
+                if(snapshot.exists()){
+                    currVal += snapshot.val().Count;
+                }
+                const analyticsStatPage = document.getElementsByClassName('project-page-stats')[0];
+                
+                let itemText=document.createTextNode(`Projects: ${currVal}`);
+    
+                analyticsStatPage.appendChild(itemText);
+                //console.log(currVal);
+            })
+            get(child(dbref,"contactPageVisits/")).then((snapshot)=>{
+                let currVal = 0;
+                if(snapshot.exists()){
+                    currVal += snapshot.val().Count;
+                }
+                const analyticsStatPage = document.getElementsByClassName('contact-page-stats')[0];
+                
+                let itemText=document.createTextNode(`Contact: ${currVal}`);
+    
+                analyticsStatPage.appendChild(itemText);
+                //console.log(currVal);
+            })
         }
         if(onHomePage){
             const dbref = ref(db);
