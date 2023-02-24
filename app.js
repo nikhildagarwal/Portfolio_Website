@@ -57,7 +57,24 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
         let projectPage5 = document.querySelector(".main-title-project5");
         let onProjectPage5 = projectPage5!=null;
         //console.log("ProjectMain: " +onProjectPage5);
+        let dataPage = document.querySelector(".main-title-data");
+        let onDataPage = dataPage!=null;
+        //console.log("DataPage: "+onDataPage);
         
+        if(onDataPage){
+            const dbref = ref(db);
+            get(child(dbref,"dataPageVisits/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"dataPageVisits/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                }else{
+                    set(ref(db,"dataPageVisits/"),{
+                        Count: 1
+                    })
+                }
+            })
+        }
         if(onHomePage){
             const dbref = ref(db);
             get(child(dbref,"homePageVisits/")).then((snapshot)=>{

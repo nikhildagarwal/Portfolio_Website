@@ -29,6 +29,9 @@ const server = http.createServer((req,res) => {
                 case "home.html":
                     res.writeHead(200,{"Content-type":"text/html"});
                     break;
+                case "analytics.html":
+                    res.writeHead(200,{"Content-type":"text/html"});
+                    break;
                 case "about.html":
                     res.writeHead(200,{"Content-type":"text/html"});
                     break;
