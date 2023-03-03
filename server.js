@@ -57,7 +57,9 @@ const server = http.createServer((req,res) => {
                 case "project5.html":
                     res.writeHead(200,{"Content-type":"text/html"});
                     break;
-
+                case "thankYou.html":
+                    res.writeHead(200,{"Content-type":"text/html"});
+                    break;
                 case "styles.css":
                     res.writeHead(200,{"Content-type":"text/css"});
                     break;
