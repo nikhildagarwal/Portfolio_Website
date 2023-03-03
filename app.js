@@ -81,7 +81,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                 }
                 const analyticsStatPage = document.getElementsByClassName('analytics-page-stats')[0];
                 
-                let itemText=document.createTextNode(`Site Analytics: ${currVal}`);
+                let itemText=document.createTextNode(`Analytics: ${currVal}`);
     
                 analyticsStatPage.appendChild(itemText);
                 //console.log(currVal);
@@ -110,14 +110,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                 analyticsStatPage.appendChild(itemText);
                 //console.log(currVal);
             })
-            get(child(dbref,"projectPageVisits/")).then((snapshot)=>{
+            get(child(dbref,"projectPagesTotal/")).then((snapshot)=>{
                 let currVal = 0;
                 if(snapshot.exists()){
                     currVal += snapshot.val().Count;
                 }
                 const analyticsStatPage = document.getElementsByClassName('project-page-stats')[0];
                 
-                let itemText=document.createTextNode(`Projects: ${currVal}`);
+                let itemText=document.createTextNode(`All Project Pages: ${currVal}`);
     
                 analyticsStatPage.appendChild(itemText);
                 //console.log(currVal);
@@ -177,6 +177,20 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     })
                 }
             })
+            
+            get(child(dbref,"projectPagesTotal/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"projectPagesTotal/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    
+                }else{
+                    set(ref(db,"projectPagesTotal/"),{
+                        Count: 1
+                    })
+                }
+            })
+            
         }
         if(onContactPage){
             const dbref = ref(db);
@@ -205,6 +219,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     })
                 }
             })
+            get(child(dbref,"projectPagesTotal/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"projectPagesTotal/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    
+                }else{
+                    set(ref(db,"projectPagesTotal/"),{
+                        Count: 1
+                    })
+                }
+            })
         }
         if(onProjectPage2){
             const dbref = ref(db);
@@ -215,6 +241,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     })
                 }else{
                     set(ref(db,"project2Visits/"),{
+                        Count: 1
+                    })
+                }
+            })
+            get(child(dbref,"projectPagesTotal/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"projectPagesTotal/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    
+                }else{
+                    set(ref(db,"projectPagesTotal/"),{
                         Count: 1
                     })
                 }
@@ -233,6 +271,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     })
                 }
             })
+            get(child(dbref,"projectPagesTotal/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"projectPagesTotal/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    
+                }else{
+                    set(ref(db,"projectPagesTotal/"),{
+                        Count: 1
+                    })
+                }
+            })
         }
         if(onProjectPage4){
             const dbref = ref(db);
@@ -247,6 +297,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     })
                 }
             })
+            get(child(dbref,"projectPagesTotal/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"projectPagesTotal/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    
+                }else{
+                    set(ref(db,"projectPagesTotal/"),{
+                        Count: 1
+                    })
+                }
+            })
         }
         if(onProjectPage5){
             const dbref = ref(db);
@@ -257,6 +319,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
                     })
                 }else{
                     set(ref(db,"project5Visits/"),{
+                        Count: 1
+                    })
+                }
+            })
+            get(child(dbref,"projectPagesTotal/")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    update(ref(db,"projectPagesTotal/"),{
+                        Count: 1+snapshot.val().Count
+                    })
+                    
+                }else{
+                    set(ref(db,"projectPagesTotal/"),{
                         Count: 1
                     })
                 }
