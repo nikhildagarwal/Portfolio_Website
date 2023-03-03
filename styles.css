@@ -148,6 +148,14 @@ section {
   color: var(--color-grey-2);
   pointer-events: none;
 }
+.theme-btn:hover {
+  background-color: var(--color-secondary);
+  transition: all 0.4s ease-in-out;
+}
+.theme-btn:hover i {
+  color: var(--color-primary);
+  transition: all 0.4s ease-in-out;
+}
 
 /*Header-content*/
 .header-content {
@@ -221,6 +229,48 @@ section {
 .header-content .right-header p {
   margin: 1.5rem 0;
   line-height: 2rem;
+}
+
+/*Stats*/
+.stats {
+  border: 1px solid var(--color-grey-5);
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.1);
+}
+.stats:hover {
+  cursor: default;
+  transform: translateY(-5px);
+  border: 1px solid var(--color-secondary);
+  box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.32);
+}
+.stats .stat-text {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.stats .stat-text .large-text {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+.stats .stat-text .small-text {
+  padding-left: 3rem;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: var(--color-grey-1);
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+.stats .stat-text .small-text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 2rem;
+  height: 2px;
+  background-color: var(--color-grey-5);
 }
 
 /*About*/
